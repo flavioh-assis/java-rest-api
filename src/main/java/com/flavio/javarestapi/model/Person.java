@@ -3,27 +3,23 @@ package com.flavio.javarestapi.model;
 import java.util.Date;
 
 public class Person {
-    String firstName;
-    String surname;
-    Date birthDate;
-    Gender gender;
-    MaritalStatus maritalStatus;
-    int socialSecurityNumber;
-    String phone;
-    String email;
-    Address address;
+    private String firstName;
+    private String surname;
+    private Gender gender;
+    private Date birthDate;
+    private Address address;
 
-    public Person(String firstName, String surname, Date birthDate, Gender gender, MaritalStatus maritalStatus,
-                  int socialSecurityNumber, String phone, String email, Address address) {
+    public Person(String firstName, String surname, Gender gender, Date birthDate, Address address) {
         this.firstName = firstName;
         this.surname = surname;
-        this.birthDate = birthDate;
         this.gender = gender;
-        this.maritalStatus = maritalStatus;
-        this.socialSecurityNumber = socialSecurityNumber;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
+        this.birthDate = birthDate;
+        this.address = new Address(
+            address.getStreet(),
+            address.getCity(),
+            address.getState(),
+            address.getZipCode()
+        );
     }
 
     public String getFirstName() {
@@ -34,31 +30,27 @@ public class Person {
         return surname;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
     public Gender getGender() {
         return gender;
     }
 
-    public MaritalStatus getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    public int getSocialSecurityNumber() {
-        return socialSecurityNumber;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
     public Address getAddress() {
         return address;
+    }
+
+    public void print() {
+        System.out.println(this.getFirstName());
+        System.out.println(this.getSurname());
+        System.out.println(this.getGender());
+        System.out.println(this.getBirthDate());
+
+        System.out.println(this.address.getStreet());
+        System.out.println(this.address.getCity());
+        System.out.println(this.address.getState());
+        System.out.println(this.address.getZipCode());
     }
 }

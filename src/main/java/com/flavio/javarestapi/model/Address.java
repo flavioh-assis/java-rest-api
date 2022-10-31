@@ -1,10 +1,10 @@
 package com.flavio.javarestapi.model;
 
 public class Address {
-    String street;
-    String city;
-    String state;
-    int zipCode;
+    private String street;
+    private String city;
+    private String state;
+    private int zipCode;
 
     public Address(String street, String city, String state, int zipCode) {
         this.street = street;
