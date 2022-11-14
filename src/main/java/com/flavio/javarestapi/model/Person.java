@@ -41,16 +41,4 @@ public class Person {
     public Address getAddress() {
         return address;
     }
-
-    public void print() {
-        System.out.println(this.getFirstName());
-        System.out.println(this.getSurname());
-        System.out.println(this.getGender());
-        System.out.println(this.getBirthDate());
-
-        System.out.println(this.address.getStreet());
-        System.out.println(this.address.getCity());
-        System.out.println(this.address.getState());
-        System.out.println(this.address.getZipCode());
-    }
 }
