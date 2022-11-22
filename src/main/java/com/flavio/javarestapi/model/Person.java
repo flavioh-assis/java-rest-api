@@ -1,25 +1,33 @@
 package com.flavio.javarestapi.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity(name = "persons")
 public class Person {
-    private String firstName;
-    private String surname;
-    private Gender gender;
-    private Date birthDate;
-    private Address address;
 
-    public Person(String firstName, String surname, Gender gender, Date birthDate, Address address) {
-        this.firstName = firstName;
-        this.surname = surname;
-        this.gender = gender;
-        this.birthDate = birthDate;
-        this.address = new Address(
-            address.getStreet(),
-            address.getCity(),
-            address.getState(),
-            address.getZipCode()
-        );
+    @Id
+    private Integer id;
+
+    @Column(nullable = false, length = 50)
+    private String firstName;
+
+    @Column(nullable = false, length = 50)
+    private String surname;
+
+    @Column(nullable = false, length = 15)
+    private Gender gender;
+
+    @Column(nullable = false)
+    private Date birthDate;
+
+    public Person() {
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -38,7 +46,23 @@ public class Person {
         return birthDate;
     }
 
-    public Address getAddress() {
-        return address;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 }
